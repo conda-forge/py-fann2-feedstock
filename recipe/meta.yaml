@@ -22,10 +22,11 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
     - setuptools
     - fann2
-    - toolchain
     - swig
   run:
     - python
