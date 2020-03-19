@@ -1,22 +1,19 @@
 {% set name = "fann2" %}
 {% set version = "1.1.2" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "0f2ae9e14630d4d652ffb58f9239ca488e5c15c38e9302f204c24d8c2f7cf0d8" %}
 
 package:
   name: 'py-{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url:  https://github.com/FutureLinkCorporation/{{ name }}/archive/{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url:  https://github.com/FutureLinkCorporation/{{ name }}/archive/{{ version }}.tar.gz
+  'sha256': '0f2ae9e14630d4d652ffb58f9239ca488e5c15c38e9302f204c24d8c2f7cf0d8'
   patches:
     - setup.py.patch
 
 build:
-  number: 1000
+  number: 1001
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   skip: True  # [win]
 
