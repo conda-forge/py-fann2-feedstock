@@ -1,21 +1,21 @@
 {% set name = "fann2" %}
-{% set version = "1.1.2" %}
+{% set version = "1.2.0" %}
 
 package:
-  name: 'py-{{ name|lower }}'
-  version: '{{ version }}'
+  name: py-{{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: '{{ name }}-{{ version }}.tar.gz'
-  url:  https://github.com/FutureLinkCorporation/{{ name }}/archive/{{ version }}.tar.gz
-  'sha256': '0f2ae9e14630d4d652ffb58f9239ca488e5c15c38e9302f204c24d8c2f7cf0d8'
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/FutureLinkCorporation/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: 63b2a6dde0b1d7f9a642598b86f223d0880cb87aef09024e19cc829840c1e3f0
   patches:
     - setup.py.patch
 
 build:
-  number: 1001
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
-  skip: True  # [win]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  skip: true  # [win]
 
 requirements:
   build:
@@ -39,7 +39,7 @@ about:
   home: https://github.com/FutureLinkCorporation/fann2
   license: LGPL-2.1
   license_family: LGPL
-  license_file: 'LICENSE'
+  license_file: LICENSE
   summary: Fast Artificial Neural Network Library (fann) python bindings.
   description: |
     Python bindings for Fast Artificial Neural Networks (FANN) library that
