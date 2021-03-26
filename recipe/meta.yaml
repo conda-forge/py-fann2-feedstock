@@ -9,8 +9,6 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/FutureLinkCorporation/{{ name }}/archive/{{ version }}.tar.gz
   sha256: 63b2a6dde0b1d7f9a642598b86f223d0880cb87aef09024e19cc829840c1e3f0
-  patches:
-    - setup.py.patch
 
 build:
   number: 0
