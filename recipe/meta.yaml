@@ -13,13 +13,14 @@ source:
     - setup.py.patch
 
 build:
-  number: 1007
+  number: 1008
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -37,7 +38,7 @@ test:
 
 about:
   home: https://github.com/FutureLinkCorporation/fann2
-  license: LGPL-2.1
+  license: LGPL-2.1-only
   license_family: LGPL
   license_file: 'LICENSE'
   summary: Fast Artificial Neural Network Library (fann) python bindings.
